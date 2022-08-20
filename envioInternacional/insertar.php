@@ -15,6 +15,7 @@
 		.formularios div:nth-child(2n) {
 			background: #9EE9A1;
 		}
+		
 
 		</style>
 	</head>
@@ -39,29 +40,40 @@
         ?>
         <div class="formularios">
             <form method="post">
-                <label>ID</label> 
+				<div>
+                <label>Id:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label> 
                 <input type="number" name="txtid"> <br>
-                <label>Nombres:</label>
+	           </div>
+			   <div>
+                <label>Nombres:&nbsp;&nbsp;</label>
                 <input type="text" name="txtnombres"> <br>
-                <label>Apellidos:</label>
+	           </div>
+			   <div>
+                <label>Apellidos:&nbsp;</label>
                 <input type="text" name="txtapellidos"> <br>
-                <label>Telefono</label>
+	           </div>
+			   <div>
+                <label>Telefono:&nbsp;&nbsp;</label>
                 <input type="text" name="txttelefono"> <br>
-                 <label>Email:</label>
-                <input type="text" name="txtemail"> <br>
-                 <label>Direccion:</label>
-                <input type="text" name="txtdireccion"> <br>
-                <label>Recibir vía:</label>
+	          </div>
+			  <div><label>Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <input type="text" name="txtemail"> <br></div>			
+			<div><label>Direccion:</label>
+                <input type="text" name="txtdireccion"> <br></div>
+			<div> <label>Recibir vía:</label>
                 <input class="via" type="radio" name="via" id="v1" value="S" />ServiEntrega
                 <input class="via" type="radio" name="via" id="v2" value="T" />Tramaco
                 <input class="via" type="radio" name="via" id="v3" value="M" />MundoExpress
-                <label>Pais:</label>
-                <input type="text" name="txtpais"> <br>
+	         </div>
+			 <div><label>Pais:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <input type="text" name="txtpais"> <br></div>
+				<div>
                 <label>Recibir información:</label>
                 <input type="checkbox" name="acc1" value="1" id="acc1" 
-                class="formItem acc principal" />  <br>
-              <label>Especificaciones:</label>
-              <textarea class="form-control formItem"name="area" id="texto" rows="4" cols="100"></textarea> <br>          
+                class="formItem acc principal" />  <br></div>
+              <div><label>Especificaciones:</label><br>
+              <textarea class="form-control formItem"name="area" id="texto" rows="4" cols="100"></textarea> <br></div>
+			  <br>         
                 <input type="submit" value="Agregar">
             </form>
         </div>
