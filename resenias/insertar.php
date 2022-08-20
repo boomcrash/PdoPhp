@@ -97,7 +97,7 @@
             ];
 
             $sql = "insert into resenia(nombre, email, valoracion, servicio, resenia, recibir_promo) ".
-                    "values(:nombre, :email,:valoracion, :radio, :nuevaResenia, :recibiremail)";
+                    "values(:nombre, :email,:valoracion, :servicio, :nuevaResenia, :recibiremail)";
             
             $stmt = $pdo->prepare($sql);
             $stmt->execute($data);
