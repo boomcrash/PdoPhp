@@ -66,7 +66,7 @@
                             <td><?php echo $fila['resenia'] ?></td>
                             <td><?php if ($fila['recibir_promo'] == 1) echo "SI"; else echo "NO"; ?></td>
                             <td>
-                                <a href="eliminar.php ? id=<?php echo $fila['resenia_id']?>">ELIMINAR</a>
+                                <a href="eliminar.php?id=<?php echo $fila['resenia_id']?>">ELIMINAR</a>
                             </td>
                         </tr>
                     <?php 

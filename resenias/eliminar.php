@@ -23,15 +23,14 @@
         <?php
         require_once '../conexion.php';
 
-        if (!empty($_GET['resenia_id'])) {
-            $data = ['id' => htmlentities($_GET['resenia_id'])];
+        if (!empty($_GET['id'])) {
+            $data = ['id' => htmlentities($_GET['id'])];
             $sql = "select * from resenia where resenia_id = :id";            
             $stmt = $pdo->prepare($sql);
             $stmt->execute($data);
             $fila = $stmt->fetch(PDO::FETCH_ASSOC);
             ?>
-            
-            
+                        
             <div style="margin-top:20px;"> 
                 <form method="POST">   
                     <div>                     
