@@ -6,6 +6,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="author" content="Yánez Guillén Paula Adriana">
         <title>CONSULTAR - YÁNEZ</title>
+        <style>
+            table {
+                border: #33FF93 1px solid;
+            }
+            td, th {
+                border: #b2b2b2 1px solid;
+            }
+            </style>
     </head>
     <body>
 
@@ -22,8 +30,8 @@
         </div>
 
         <!-- TU CODIGO EMPIEZA AQUI -->
-              
-        require_once '../conexion.php';
+          <?php    
+    require_once '../conexion.php';
 
 $sql = "select * from envio_internacional";
 $stmt = $pdo->prepare($sql);// preparar la sentencia
@@ -74,7 +82,7 @@ $stmt->execute(); // ejecutar la sentencia
             <?php } ?>
         </tbody>
     </table>
-    <a href="agregar.php">Agregar</a>
+    <a href="insertar.php">Insertar</a>
 </div>
 
 
