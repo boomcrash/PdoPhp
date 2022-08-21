@@ -69,14 +69,15 @@
               <div><label>Especificaciones:</label><br>
               <textarea name="area" id="texto" rows="4" cols="100"></textarea> <br></div>
 			  <br>         
-                <input type="submit" value="Agregar">
+                <input type="submit" value="INSERTAR">
             </form>
         </div>
         <?php
          require_once '../conexion.php';
 
         if (!empty($_POST['txnombres']) &&  !empty($_POST['txtapellidos']) && !empty($_POST['txttelefono'])
-        && !empty($_POST['txtemail'])&& !empty($_POST['txtdireccion'])&& !empty($_POST['radio'])&& !empty($_POST['txtpais'])){
+        && !empty($_POST['txtemail'])&& !empty($_POST['txtdireccion'])&& !empty($_POST['radio'])&& !empty($_POST['txtpais'])
+        && !empty($_POST['area'])){
           
             $nombres = htmlentities($_POST['txtnombres']);
             $apellidos = htmlentities($_POST['txtapellidos']);
@@ -115,7 +116,7 @@
 
             ];
  $sql = "insert into envio_internacional (nombres, apellidos, telefonos,email,direccion,recibir_via,pais,recibir_info,especificaciones) 
- values(:nom, :apell,:via,:dir,:email,:pais,:info,:esp)";
+ values(:nom, :apell,:radio,:dir,:email,:pais,:info,:esp)";
             $stmt = $pdo->prepare($sql);// prepara sentencia
             $stmt->execute($data);// ejecutar sentencia
             
