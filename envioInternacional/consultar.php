@@ -70,10 +70,8 @@ $stmt->execute(); // ejecutar la sentencia
                     <td><?php echo $fila['direccion'] ?></td>
                     <td><?php echo $fila['recibir_via'] ?></td>
                     <td><?php echo $fila['pais'] ?></td>
-                    <td><?php echo $fila['recibir_info'] ?></td>
+                    <td><?php if ($fila['recibir_info'] == 1) echo "SI"; else echo "NO"; ?></td>
                     <td><?php echo $fila['especificaciones'] ?></td>
-
-
 
                     <td>
                         <a href="eliminar.php?id=<?php echo $fila['id'] ?>">Eliminar</a>
@@ -84,7 +82,6 @@ $stmt->execute(); // ejecutar la sentencia
     </table>
     <a href="insertar.php">Insertar</a>
 </div>
-
 
         <!-- TU CODIGO TERMINA AQUI -->
 

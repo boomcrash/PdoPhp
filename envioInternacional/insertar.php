@@ -61,18 +61,17 @@
 			<div><label>Direccion:</label>
                 <input type="text" name="txtdireccion"> <br></div>
 			<div> <label>Recibir vía:</label>
-                <input class="via" type="radio" name="via" id="v1" value="S" />ServiEntrega
-                <input class="via" type="radio" name="via" id="v2" value="T" />Tramaco
-                <input class="via" type="radio" name="via" id="v3" value="M" />MundoExpress
+                <input class="via" type="radio" name="radio"  value="1" />ServiEntrega
+                <input class="via" type="radio" name="radio"  value="2" />Tramaco
+                <input class="via" type="radio" name="radio"  value="3" />MundoExpress
 	         </div>
 			 <div><label>Pais:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
                 <input type="text" name="txtpais"> <br></div>
 				<div>
                 <label>Recibir información:</label>
-                <input type="checkbox" name="acc1" value="1" id="acc1" 
-                class="formItem acc principal" />  <br></div>
+                <input type="checkbox" name="info"/>  <br></div>
               <div><label>Especificaciones:</label><br>
-              <textarea class="form-control formItem"name="area" id="texto" rows="4" cols="100"></textarea> <br></div>
+              <textarea name="area" id="texto" rows="4" cols="100"></textarea> <br></div>
 			  <br>         
                 <input type="submit" value="Agregar">
             </form>
@@ -80,21 +79,31 @@
         <?php
          require_once '../conexion.php';
 
-        if (!empty($_POST['txtid']) && !empty($_POST['txnombres']) && 
-                !empty($_POST['txtapellidos']) && !empty($_POST['txttelefono'])
-                && !empty($_POST['txtemail'])&& !empty($_POST['txtdireccion'])
-                && !empty($_POST['via'])&& !empty($_POST['txtpais'])){
+        if (!empty($_POST['txnombres']) &&  !empty($_POST['txtapellidos']) && !empty($_POST['txttelefono'])
+        && !empty($_POST['txtemail'])&& !empty($_POST['txtdireccion'])&& !empty($_POST['radio'])&& !empty($_POST['txtpais'])){
           
-            $id = htmlentities($_POST['txtid']);
             $nombres = htmlentities($_POST['txtnombres']);
             $apellidos = htmlentities($_POST['txtapellidos']);
-            $via= htmlentities($_POST['via']);
             $direccion = htmlentities($_POST['txtdireccion']);
             $email = isset($_POST['txtemail'])? htmlentities($_POST['txtemail']):'';
             $pais= htmlentities($_POST['txtpais']);
-            $info= htmlentities($_POST['acc1']);
             $especificaciones= htmlentities($_POST['area']);
+          
+            if (htmlentities($_POST['radio']) == 1) {
+                $radio = "Servientrega";
+            }else if (htmlentities($_POST['radio']) == 2){
+                $radio = "Tramaco";
+            }else if(htmlentities($_POST['radio']) == 3){
+                $radio = "MundoExpress";
 
+            }          
+            
+            if (isset($_POST['info'])) {
+                $info = 1;
+            }else{
+                $info = 0;
+            }
+           
 
             
             $data = [
