@@ -42,7 +42,7 @@ $stmt->execute(); // ejecutar la sentencia
     <table>
         <thead>
             <tr>
-                <th>ID</th>
+                <th>Id</th>
                 <th>Nombres</th>
                 <th>Apellidos</th>
                 <th>Telefonos</th>

@@ -29,7 +29,7 @@
             <div style="margin-top:20px;"> 
                 <form method="POST">   
                     <div>                     
-                        <label>ID:</label>
+                        <label>Id:</label>
                         
                         <?php
                         if (!empty($_GET['id'])){
@@ -43,24 +43,11 @@
 
                     <div>
                     <form method="post">
-                        <!-- <input type="hidden" name="txtid" value=""> -->
                         <label>Id:</label><input type="text" name="txtid" readonly="" value="<?php echo $fila['internacional_id'] ?>">
-                        <label>Usuario:</label><input type="text" name="txtusuario" value="<?php echo $fila['username'] ?>">
                         <input type="submit" value="Eliminar">
                     </form>
 
                    </div>
-
-
-                            <input type="text" name="txtid" readonly="" value="<?php echo $fila['internacional_id']?>">
-                            </div>
-                            <div style="margin-top:10px;">
-                                <label>Especificaciones:</label>
-                            </div>
-                            <div style="margin-bottom:10px;">
-                            <textarea name="area" id="texto" rows="4" cols="100"></textarea> <br></div>
-                                <textarea name="area" id="texto" rows="5" cols="40" readonly=""><?php echo $fila['especificaciones']?></textarea>   
-                            </div>
 
                         <?php
                         }else{?>
@@ -87,7 +74,7 @@
             if ($stmt->rowCount() > 0) {
                 header("location:consultar.php");
             } else {
-                echo 'No se pudo eliminar la reseña. Ingrese un ID correcto.';
+                echo 'No se pudo eliminar el envío realizado. Ingrese un ID correcto.';
             }
         }
         ?>

@@ -40,10 +40,6 @@
         ?>
         <div class="formularios">
             <form method="post">
-				<div>
-                <label>Id:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label> 
-                <input type="number" name="txtid"> <br>
-	           </div>
 			   <div>
                 <label>Nombres:&nbsp;&nbsp;</label>
                 <input type="text" name="txtnombres"> <br>
@@ -107,10 +103,9 @@
 
             
             $data = [
-                'id' =>htmlentities($_POST['txtid']),
-                'nom' =>htmlentities($_POST['txtnombre']),
+                'nom' =>$nombres,
                 'apell'=>$apellidos,
-                'via' =>$via,
+                'radio' =>$radio,
                 'dir'=>$direccion,
                 'email' => $email,
                 'pais' =>$pais,
@@ -119,12 +114,13 @@
 
 
             ];
- $sql = "insert into envio_internacional (internacional_id, nombres, apellidos, telefonos,email,direccion,recibir_via,pais,recibir_info,especificaciones) values(:id, :nom, :apell,:via,:dir,:email,:pais,:info,:esp)";
+ $sql = "insert into envio_internacional (nombres, apellidos, telefonos,email,direccion,recibir_via,pais,recibir_info,especificaciones) 
+ values(:nom, :apell,:via,:dir,:email,:pais,:info,:esp)";
             $stmt = $pdo->prepare($sql);// prepara sentencia
             $stmt->execute($data);// ejecutar sentencia
             
             if ($stmt->rowCount() > 0) {// rowCount() permite conocer el numero de filas afectadas
-                header("location:presentar.php");
+                header("location:consultar.php");
             }else{
                 echo "Error al insertar usuario";
             }
