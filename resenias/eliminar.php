@@ -42,12 +42,6 @@
 
                             <input type="text" name="txtid" readonly="" value="<?php echo $fila['resenia_id']?>">
                             </div>
-                            <div style="margin-top:10px;">
-                                <label>RESEÑA:</label>
-                            </div>
-                            <div style="margin-bottom:10px;">
-                                <textarea name="nuevaResenia" rows="5" cols="40" readonly=""><?php echo $fila['resenia']?></textarea>   
-                            </div>
 
                         <?php
                         }else{?>
