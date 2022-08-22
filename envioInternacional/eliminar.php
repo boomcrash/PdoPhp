@@ -29,7 +29,7 @@
             <div style="margin-top:20px;"> 
                 <form method="POST">   
                     <div>                     
-                        
+                    <label>Id:</label> 
                         <?php
                         if (!empty($_GET['id'])){
                                  
@@ -42,7 +42,7 @@
 
                     <div>
                     <form method="post">
-                        <label>Id:</label><input type="text" name="txtid" readonly="" value="<?php echo $fila['internacional_id'] ?>">
+                        <input type="text" name="txtid" readonly="" value="<?php echo $fila['internacional_id'] ?>">
                         <input type="submit" value="Eliminar">
                     </form>
 
