@@ -34,10 +34,7 @@
 		</div>
 		
 		<!-- TU CODIGO EMPIEZA AQUI -->
-		<?php
-        $titulo="Agregar envío internacional";
-        include_once '../templates/header.php';
-        ?>
+		
         <div class="formularios">
             <form method="post">
 			   <div>
@@ -65,7 +62,7 @@
                 <input type="text" name="txtpais"> <br></div>
 				<div>
                 <label>Recibir información:</label>
-                <input type="checkbox" name="info"/>  <br></div>
+                <input type="checkbox" name="info[]" value="1"/>  <br></div>
               <div><label>Especificaciones:</label><br>
               <textarea name="area" id="texto" rows="4" cols="100"></textarea> <br></div>
 			  <br>         
@@ -75,16 +72,24 @@
         <?php
          require_once '../conexion.php';
 
-        if (!empty($_POST['txnombres']) &&  !empty($_POST['txtapellidos']) && !empty($_POST['txttelefono'])
+        if (!empty($_POST['txtnombres']) &&  !empty($_POST['txtapellidos']) && !empty($_POST['txttelefono'])
         && !empty($_POST['txtemail'])&& !empty($_POST['txtdireccion'])&& !empty($_POST['radio'])&& !empty($_POST['txtpais'])
-        && !empty($_POST['area'])){
+        ){
+
           
             $nombres = htmlentities($_POST['txtnombres']);
             $apellidos = htmlentities($_POST['txtapellidos']);
+            $telefono= htmlentities($_POST['txttelefono']);
             $direccion = htmlentities($_POST['txtdireccion']);
-            $email = isset($_POST['txtemail'])? htmlentities($_POST['txtemail']):'';
+            $email = htmlentities($_POST['txtemail']);
             $pais= htmlentities($_POST['txtpais']);
             $especificaciones= htmlentities($_POST['area']);
+            $info=$_POST['info'];
+
+           /* $info=0;
+            foreach($info as $opcion){
+                $info=1;
+            }*/
           
             if (htmlentities($_POST['radio']) == 1) {
                 $radio = "Servientrega";
@@ -106,17 +111,18 @@
             $data = [
                 'nom' =>$nombres,
                 'apell'=>$apellidos,
-                'radio' =>$radio,
-                'dir'=>$direccion,
+                'tel'=>$telefono,
                 'email' => $email,
+                'dir'=>$direccion,
+                'radio' =>$radio,
                 'pais' =>$pais,
                 'info' =>$info,
                 'esp' =>$especificaciones
 
 
             ];
- $sql = "insert into envio_internacional (nombres, apellidos, telefonos,email,direccion,recibir_via,pais,recibir_info,especificaciones) 
- values(:nom, :apell,:radio,:dir,:email,:pais,:info,:esp)";
+            $sql = "insert into envio_internacional (nombres, apellidos, telefono,email,direccion,recibir_via,pais,recibir_info,especificaciones) ".
+            "values(:nom, :apell,:tel,:email,:dir,:radio,:pais,:info,:esp)";
             $stmt = $pdo->prepare($sql);// prepara sentencia
             $stmt->execute($data);// ejecutar sentencia
             

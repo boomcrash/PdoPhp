@@ -29,7 +29,6 @@
             <div style="margin-top:20px;"> 
                 <form method="POST">   
                     <div>                     
-                        <label>Id:</label>
                         
                         <?php
                         if (!empty($_GET['id'])){
