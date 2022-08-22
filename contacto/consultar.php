@@ -9,6 +9,9 @@
         <style>table {
                 border: #b2b2b2 1px solid;
             }
+            th {
+                background: #D4F4DB;
+            }
             td, th {
                 border: #b2b2b2 1px solid;
                 padding: 5px;

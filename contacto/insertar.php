@@ -95,11 +95,7 @@
             $nuevoComent = htmlentities($_POST['nuevoComent']);
             $info=$_POST['info'];
 
-          /*   $info=0;
-            foreach($info as $opcion){
-                $info=1;
-            }
-             */
+
             if (htmlentities($_POST['radio']) == 1) {
                 $radio = "Femenino";
             }else if (htmlentities($_POST['radio']) == 2){

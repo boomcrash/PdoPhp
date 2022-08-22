@@ -29,7 +29,7 @@
             <div style="margin-top:20px;"> 
                 <form method="POST">   
                     <div>                     
-                        
+                    <label>Código ID del contacto que quiere eliminar</label>
                         <?php
                         if (!empty($_GET['id'])){
                                  
@@ -42,7 +42,7 @@
 
                     <div>
                     <form method="post">
-                        <label>Id:</label><input type="text" name="txtid" readonly="" value="<?php echo $fila['contacto_id'] ?>">
+                        <label>ID:</label><input type="text" name="txtid" readonly="" value="<?php echo $fila['contacto_id'] ?>">
                         <input type="submit" value="Eliminar">
                     </form>
 
