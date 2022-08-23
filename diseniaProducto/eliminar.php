@@ -37,21 +37,23 @@
             $stmt = $pdo->prepare($sql);
             $stmt->execute($data);
 
-            $filas = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $filas = $stmt->fetch(PDO::FETCH_ASSOC);
                 ?>
-                <div>
-                    <form method="post">
-
-                        <input type="text" name="txtid" readonly="" value="<?php echo $fila['disenio_id'] ?>">
-                        <label>cliente:</label><input type="text" name="txtcliente" value="<?php echo $fila['cliente'] ?>">
-
-                        <input type="submit" value="Eliminar">
-                    </form>
-
+                <input type="text" name="txtid" readonly="" value="<?php echo $filas['disenio_id']?>">
                 </div>
+                <div style="margin-top:10px;"><label>CLIENTE:</label></div>
+                <div style="margin-bottom:10px;"><input type="text" name="txtcliente" readonly="" value="<?php echo $filas['cliente']?>"> </div>
+            <?php
+            }else{?>
+                <input type="number" name="txtid">
             <?php
             }
         ?>
+                    <div> 
+                        <input style="margin-top:20px;" type="submit" value="ELIMINAR">
+                    </div>
+                </form>
+
         <?php
         if (isset($_POST['txtid'])) {
             $data = ['id' => htmlentities($_POST['txtid'])];

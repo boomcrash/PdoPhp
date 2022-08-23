@@ -32,7 +32,7 @@
 
             <div style="margin-bottom:10px;">
                 <label>PRODUCTO:</label>
-                <select name="cbxproductos" id="cbxprod">
+                <select name="cbxproducto" id="cbxprod">
                     <option value="0">Seleccione...</option>
                     <option value="1">Camiseta</option>
                     <option value="2">Abrigo</option>
@@ -49,7 +49,7 @@
 
             <div style="margin-bottom:10px;">
                 <label>DISEÑO:</label>
-                <select name="cbxdiseño" id="cbxdis">
+                <select name="cbxdisenio" id="cbxdis">
                     <option value="0">Seleccione...</option>
                     <option value="1">Personalizado</option>
                     <option value="2">Estándar</option>
@@ -73,33 +73,45 @@
         <?php
          require_once '../conexion.php';
 
-        if (!empty($_POST['txtid']) && !empty($_POST['cbxproductos']) && !empty($_POST['txtcliente']) 
-        && !empty($_POST['cbxdiseño']) && !empty($_POST['rbmodelo']) ) {
+        if (!empty($_POST['cbxproducto']) && !empty($_POST['txtcliente']) 
+        && !empty($_POST['cbxdisenio']) && !empty($_POST['rbmodelo']) ) {
           
-            $id = htmlentities($_POST['txtid']);
-            $productos = htmlentities($_POST['cbxproductos']);
+            $producto = htmlentities($_POST['cbxproducto']);
             $cliente = htmlentities($_POST['txtcliente']);
-            $diseño = htmlentities($_POST['cbxdiseño']);
+            $disenio = htmlentities($_POST['cbxdisenio']);
             
 
-            if (htmlentities($_POST['rbmodelo']) == 1) {
+            switch ($modelo) {
+                case 'real':
+                    $modelo="realista";
+                    break;
+                case 'cari':
+                    $modelo="caricatura";
+                    break;
+                case 'an':
+                    $modelo="anime";
+                    break;
+                default:
+                    echo "NO SE SELECCIONO UN MODELO";
+                    break;
+            }
+            /*if (htmlentities($_POST['rbmodelo']) == 1) {
                 $modelo = "realista";
             }else if (htmlentities($_POST['rbmodelo']) == 2){
                 $modelo = "caricatura";
-            }else {
+            }else if(htmlentities($_POST['rbmodelo']) == 3){ 
                 $modelo = "anime";
-            }       
-            
+            }
+            */
             $data = [
-                'id' => $id,
-                'productos' => $productos,
+                'producto' => $producto,
                 'cliente' => $cliente,
-                'diseño'=>$diseño,
+                'disenio'=>$disenio,
                 'modelo' => $modelo,
             ];
 
-            $sql = "insert into disenio_producto (id, productos, cliente, diseño, modelo)".
-                    "values(:id, :productos, :cliente, :diseño, :modelo)";
+            $sql = "insert into disenio_producto (producto, cliente, disenio, modelo)".
+                    "values( :producto, :cliente, :disenio, :modelo)";
             $stmt = $pdo->prepare($sql);
             $stmt->execute($data);
             

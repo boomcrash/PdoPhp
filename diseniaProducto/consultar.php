@@ -60,7 +60,7 @@
                             <td><?php echo $fila['disenio_id'] ?></td>
                             <td><?php echo $fila['producto'] ?></td>
                             <td><?php echo $fila['cliente'] ?></td>
-                            <td><?php echo $fila['diseño'] ?></td>
+                            <td><?php echo $fila['disenio'] ?></td>
                             <td><?php echo $fila['modelo'] ?></td>
                             <td>
                                 <a href="eliminar.php?id=<?php echo $fila['disenio_id'] ?>">ELIMINAR</a>
