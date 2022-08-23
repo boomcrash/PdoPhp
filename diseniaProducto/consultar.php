@@ -5,7 +5,17 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="author" content="Sicha Vega Betsy Arlette">
-        <title>CONSULTAR - APELLIDO</title>
+        <title>CONSULTAR - SICHA VEGA </title>
+        <style>
+            table {
+                border: #b2b2b2 1px solid;
+                border-collapse: collapse;
+            }
+            td, th {
+                border: #b2b2b2 1px solid;
+                padding: 5px;
+            }
+        </style>
     </head>
     <body>
 
@@ -22,13 +32,45 @@
         </div>
 
         <!-- TU CODIGO EMPIEZA AQUI -->
-              
+        <?php
+        require_once '../conexion.php';
 
+            $sql = "select * from disenio_producto ";
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute();
+        ?>
 
-
-
-
-
+        <div style="margin-top:20px;">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>PRODUCTO</th>
+                        <th>CLIENTE</th>
+                        <th>DISEÑO</th>
+                        <th>MODELO</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    $filas = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                    foreach ($filas as $fila) {
+                        ?>
+                        <tr>
+                            <td><?php echo $fila['disenio_id'] ?></td>
+                            <td><?php echo $fila['producto'] ?></td>
+                            <td><?php echo $fila['cliente'] ?></td>
+                            <td><?php echo $fila['diseño'] ?></td>
+                            <td><?php echo $fila['modelo'] ?></td>
+                            <td>
+                                <a href="eliminar.php?id=<?php echo $fila['disenio_id'] ?>">ELIMINAR</a>
+                            </td>
+                        </tr>
+                    <?php } ?>
+                </tbody>
+            </table>
+            <a href="insertar.php">INSERTAR</a>
+        </div>
         <!-- TU CODIGO TERMINA AQUI -->
         
     </body>
