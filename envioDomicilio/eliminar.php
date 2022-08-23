@@ -1,3 +1,4 @@
+<?php ob_start() ?>
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -22,7 +23,91 @@
         </div>
         
         <!-- TU CODIGO EMPIEZA AQUI -->
-              
+            
+        <?php
+        require_once '../conexion.php';            
+        ?>
+                        
+            <div style="margin-top:20px;"> 
+                <form method="POST">   
+                    <div>                     
+                        <label>ID:</label>
+                        
+                        <?php
+                        if (!empty($_GET['id'])){
+                                 
+                            $data = ['id' => htmlentities($_GET['id'])];
+                            $sql = "select * from envio_domicilio where domicilio_id = :id";            
+                            $stmt = $pdo->prepare($sql);
+                            $stmt->execute($data);
+                            $fila = $stmt->fetch(PDO::FETCH_ASSOC);
+                            ?>
+
+                            <input type="text" name="txtid" readonly="" value="<?php echo $fila['domicilio_id']?>">
+                            </div>
+                            <div style="margin-top:10px;">
+                                <label>Envio Domicilio:</label>
+                            </div>
+                                <div style="margin-top:20px;">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>CEDULA</th>
+                                                <th>CELULAR</th>
+                                                <th>CORREO</th>
+                                                <th>POSTAL</th>
+                                                <th>REFERENCIAS</th>
+                                                <th>TIPO ENVIO</th>
+                                                <th>PRODUCTOS</th>
+                                                <th>CIUDAD</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                    <td><?php echo $fila['domicilio_id'] ?></td>
+                                                    <td><?php echo $fila['cedula'] ?></td>
+                                                    <td><?php echo $fila['celular'] ?></td>
+                                                    <td><?php echo $fila['correo'] ?></td>
+                                                    <td><?php echo $fila['postal'] ?></td>
+                                                    <td><?php echo $fila['referencias'] ?></td>
+                                                    <td><?php echo $fila['tipo_envio'] ?></td>
+                                                    <td><?php echo $fila['productos'] ?></td>
+                                                    <td><?php echo $fila['ciudad'] ?></td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                        <?php
+                        }else{?>
+                            <input type="number" name="txtid">
+                        <?php
+                        }
+                        ?>
+
+                    
+                    <div> 
+                        <input style="margin-top:20px;" type="submit" value="ELIMINAR">
+                    </div>
+                </form>
+            </div>
+        
+
+        <?php
+        if (isset($_POST['txtid'])) {
+            $data = ['id' => htmlentities($_POST['txtid'])];
+            $sql = "delete from envio_domicilio where domicilio_id = :id";
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute($data);
+
+            if ($stmt->rowCount() > 0) {
+                header("location:consultar.php");
+            } else {
+                echo 'ERROR: No se logro eliminar (asegurese de ahber ingresado un Id)';
+            }
+        }
+        ?>
 
 
 
