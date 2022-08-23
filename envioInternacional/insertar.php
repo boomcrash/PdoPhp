@@ -1,3 +1,4 @@
+<?php ob_start() ?>
 <!DOCTYPE html>
 <html lang="es">
 	<head>
@@ -47,10 +48,10 @@
 	           </div>
 			   <div>
                 <label>Telefono:&nbsp;&nbsp;</label>
-                <input type="text" name="txttelefono"> <br>
+                <input type="text" name="txttelefono" max="10" min="10"> <br>
 	          </div>
 			  <div><label>Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                <input type="text" name="txtemail"> <br></div>			
+                <input type="email" name="txtemail"> <br></div>			
 			<div><label>Direccion:</label>
                 <input type="text" name="txtdireccion"> <br></div>
 			<div> <label>Recibir vía:</label>
