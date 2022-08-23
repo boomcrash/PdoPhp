@@ -10,7 +10,7 @@
     <body>
 
         <?php
-        include_once '../templates/header.php';
+            include_once '../templates/header.php';
         ?>
 
         <hr style="border:1px solid;">
@@ -21,54 +21,53 @@
             <a style="color:#0B5407; font-weight:bold;" href="../diseniaProducto/eliminar.php">ELIMINAR</a>
         </div>
         
-        <!-- TU CODIGO EMPIEZA AQUI -->
         <?php
-        require_once '../conexion.php';
+            require_once '../conexion.php';
         ?>
         <div style="margin-top:20px;"> 
-        <form method="POST">   
-            <div>                     
-                <label>ID:</label>
-        
-        <?php
-        if (!empty($_GET['id'])) {
-            $data = ['id' => htmlentities($_GET['id'])];
-            $sql = "select * from disenio_producto where disenio_id = :id";
-            $stmt = $pdo->prepare($sql);
-            $stmt->execute($data);
+            <form method="POST">   
 
-            $filas = $stmt->fetch(PDO::FETCH_ASSOC);
-                ?>
-                <input type="text" name="txtid" readonly="" value="<?php echo $filas['disenio_id']?>">
+                <div>                     
+                    <label>ID:</label>
+                        <?php
+                            if (!empty($_GET['id'])) {
+                                $data = ['id' => htmlentities($_GET['id'])];
+                                $sql = "select * from disenio_producto where disenio_id = :id";
+                                $stmt = $pdo->prepare($sql);
+                                $stmt->execute($data);
+
+                                $filas = $stmt->fetch(PDO::FETCH_ASSOC);
+                        ?>
+                    <input type="text" name="txtid" readonly="" value="<?php echo $filas['disenio_id']?>">
                 </div>
+
                 <div style="margin-top:10px;"><label>CLIENTE:</label></div>
                 <div style="margin-bottom:10px;"><input type="text" name="txtcliente" readonly="" value="<?php echo $filas['cliente']?>"> </div>
-            <?php
-            }else{?>
-                <input type="number" name="txtid">
-            <?php
-            }
-        ?>
+        
+                <?php
+                    }else{?>
+                        <input type="number" name="txtid">
+                            <?php
+                    }
+                ?>
                     <div> 
                         <input style="margin-top:20px;" type="submit" value="ELIMINAR">
                     </div>
-                </form>
+            </form>
 
         <?php
-        if (isset($_POST['txtid'])) {
-            $data = ['id' => htmlentities($_POST['txtid'])];
-            $sql = "delete from disenio_producto where disenio_id = :id";
-            $stmt = $pdo->prepare($sql);
-            $stmt->execute($data);
+            if (isset($_POST['txtid'])) {
+                $data = ['id' => htmlentities($_POST['txtid'])];
+                $sql = "delete from disenio_producto where disenio_id = :id";
+                $stmt = $pdo->prepare($sql);
+                $stmt->execute($data);
 
-            if ($stmt->rowCount() > 0) {// rowCount() permite conocer el numero de filas afectadas
-                header("location:consultar.php");
-            } else {
-                echo 'NO SE PUDO ELIMINAR EL REGISTRO';
+                    if ($stmt->rowCount() > 0) {// rowCount() permite conocer el numero de filas afectadas
+                        header("location:consultar.php");
+                        } else {
+                            echo 'NO SE PUDO ELIMINAR EL REGISTRO';
+                        }
             }
-        }
         ?>    
-        <!-- TU CODIGO TERMINA AQUI -->
-
     </body>
 </html>

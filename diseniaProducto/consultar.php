@@ -31,9 +31,8 @@
             <a style="margin-right:20px; color:#0B5407;" href="../diseniaProducto/eliminar.php">ELIMINAR</a>
         </div>
 
-        <!-- TU CODIGO EMPIEZA AQUI -->
         <?php
-        require_once '../conexion.php';
+            require_once '../conexion.php';
 
             $sql = "select * from disenio_producto ";
             $stmt = $pdo->prepare($sql);
@@ -51,27 +50,26 @@
                         <th>MODELO</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <?php
-                    $filas = $stmt->fetchAll(PDO::FETCH_ASSOC);
-                    foreach ($filas as $fila) {
-                        ?>
-                        <tr>
-                            <td><?php echo $fila['disenio_id'] ?></td>
-                            <td><?php echo $fila['producto'] ?></td>
-                            <td><?php echo $fila['cliente'] ?></td>
-                            <td><?php echo $fila['disenio'] ?></td>
-                            <td><?php echo $fila['modelo'] ?></td>
-                            <td>
-                                <a href="eliminar.php?id=<?php echo $fila['disenio_id'] ?>">ELIMINAR</a>
-                            </td>
-                        </tr>
-                    <?php } ?>
-                </tbody>
+            <tbody>
+
+        <?php
+            $filas = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            foreach ($filas as $fila) {
+        ?>
+            <tr>
+                <td><?php echo $fila['disenio_id'] ?></td>
+                <td><?php echo $fila['producto'] ?></td>
+                <td><?php echo $fila['cliente'] ?></td>
+                <td><?php echo $fila['disenio'] ?></td>
+                <td><?php echo $fila['modelo'] ?></td>
+                <td>
+                    <a href="eliminar.php?id=<?php echo $fila['disenio_id'] ?>">ELIMINAR</a>
+                </td>
+            </tr>
+        <?php } ?>
+            </tbody>
             </table>
-            <a href="insertar.php">INSERTAR</a>
+                <a href="insertar.php">INSERTAR</a>
         </div>
-        <!-- TU CODIGO TERMINA AQUI -->
-        
     </body>
 </html>
