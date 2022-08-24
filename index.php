@@ -9,7 +9,7 @@
     <body>
 
         <?php
-        include_once 'templates/encabezado.php';
+        include_once 'plantillas/encabezado.php';
         ?>
 
     </body>
