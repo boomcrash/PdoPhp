@@ -9,7 +9,7 @@
     <body>
 
         <?php
-        include_once 'templates/header.php';
+        include_once 'templates/encabezado.php';
         ?>
 
     </body>

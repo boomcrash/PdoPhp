@@ -1,3 +1,4 @@
+<?php ob_start() ?>
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -10,15 +11,15 @@
     <body>
 
         <?php
-        include_once '../templates/header.php';
+        include_once '../plantillas/encabezado.php';
         ?>
 
         <hr style="border:1px solid;">
         <h2>CONTACTO</h2>
         <div style="margin:20px 0 40px 0">
-            <a style="margin-right:20px; color:#0B5407;" href="../contacto/consultar.php">CONSULTAR</a>
-            <a style="margin-right:20px; color:#0B5407; font-weight:bold;" href="../contacto/insertar.php">INSERTAR</a>
-            <a style="color:#0B5407;"href="../contacto/eliminar.php">ELIMINAR</a>
+            <a style="margin-right:20px; color:#0B5407;" href="../modulo.contacto/consultar.php">CONSULTAR</a>
+            <a style="margin-right:20px; color:#0B5407; font-weight:bold;" href="../modulo.contacto/insertar.php">INSERTAR</a>
+            <a style="color:#0B5407;"href="../modulo.contacto/eliminar.php">ELIMINAR</a>
         </div>
 
         <!-- TU CODIGO EMPIEZA AQUI -->
@@ -61,7 +62,7 @@
                 </div>
                 <div>
                     <label>Recibir más información por correo</label>
-                    <input type="checkbox" name="info[]" value="1"/>  <br></div>
+                    <input type="checkbox" name="info"/>  <br></div>
                 </div>
                 <div style="margin-bottom:10px;">
                     <label>Fecha de nacimiento:</label>
@@ -93,7 +94,7 @@
             $estadoC = htmlentities($_POST['estadoC']);
             $fechaN = htmlentities($_POST['fechaN']);
             $nuevoComent = htmlentities($_POST['nuevoComent']);
-            $info=$_POST['info'];
+           
 
 
             if (htmlentities($_POST['radio']) == 1) {
@@ -103,6 +104,7 @@
             }else if (htmlentities($_POST['radio']) == 3){
                 $radio = "Otro";
             } 
+            
             if (isset($_POST['info'])) {
                 $info = 1;
             }else{

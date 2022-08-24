@@ -19,15 +19,15 @@
 	<body>
 
 		<?php
-		include_once '../templates/header.php';
+		include_once '../plantillas/encabezado.php';
 		?>
 
 		<hr style="border:1px solid;">
 		<h2>ENVIOS INTERNACIONALES</h2>
 		<div style="margin:20px 0 40px 0">
-			<a style="margin-right:20px; color:#0B5407; font-weight:bold;" href="../envioInternacional/consultar.php">CONSULTAR</a>
-			<a style="margin-right:20px; color:#0B5407;" href="../envioInternacional/insertar.php">INSERTAR</a>
-			<a style="margin-right:20px; color:#0B5407;" href="../envioInternacional/eliminar.php">ELIMINAR</a>
+			<a style="margin-right:20px; color:#0B5407; font-weight:bold;" href="../modulo.envio.internacional/consultar.php">CONSULTAR</a>
+			<a style="margin-right:20px; color:#0B5407;" href="../modulo.envio.internacional/insertar.php">INSERTAR</a>
+			<a style="margin-right:20px; color:#0B5407;" href="../modulo.envio.internacional/eliminar.php">ELIMINAR</a>
 		</div>
 
 		<!-- TU CODIGO EMPIEZA AQUI -->

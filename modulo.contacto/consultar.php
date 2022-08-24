@@ -1,3 +1,4 @@
+<?php ob_start() ?>
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -20,15 +21,15 @@
     <body>
 
         <?php
-        include_once '../templates/header.php';
+        include_once '../plantillas/encabezado.php';
         ?>
 
         <hr style="border:1px solid;">
         <h2>CONTACTO</h2>
         <div style="margin:20px 0 40px 0">
-            <a style="margin-right:20px; color:#0B5407; font-weight:bold;" href="../contacto/consultar.php">CONSULTAR</a>
-            <a style="margin-right:20px; color:#0B5407;" href="../contacto/insertar.php">INSERTAR</a>
-            <a style="margin-right:20px; color:#0B5407;" href="../contacto/eliminar.php">ELIMINAR</a>
+            <a style="margin-right:20px; color:#0B5407; font-weight:bold;" href="../modulo.contacto/consultar.php">CONSULTAR</a>
+            <a style="margin-right:20px; color:#0B5407;" href="../modulo.contacto/insertar.php">INSERTAR</a>
+            <a style="margin-right:20px; color:#0B5407;" href="../modulo.contacto/eliminar.php">ELIMINAR</a>
         </div>
         
         <!-- TU CODIGO EMPIEZA AQUI -->

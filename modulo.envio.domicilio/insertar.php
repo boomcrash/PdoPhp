@@ -123,12 +123,12 @@
     </head>
     <body>
 
-<?php include_once '../templates/header.php'; ?>
+<?php include_once '../plantillas/encabezado.php'; ?>
 <h2>ENVIOS A DOMICILIO</h2>
 <div style="margin:20px 0 40px 0">
-    <a style="margin-right:20px; color:#0B5407;" href="../envioDomicilio/consultar.php">CONSULTAR</a>
-    <a style="margin-right:20px; color:#0B5407; font-weight:bold;" href="../envioDomicilio/insertar.php">INSERTAR</a>
-    <a style="color:#0B5407;"href="../envioDomicilio/eliminar.php">ELIMINAR</a>
+    <a style="margin-right:20px; color:#0B5407;" href="../modulo.envio.domicilio/consultar.php">CONSULTAR</a>
+    <a style="margin-right:20px; color:#0B5407; font-weight:bold;" href="../modulo.envio.domicilio/insertar.php">INSERTAR</a>
+    <a style="color:#0B5407;"href="../modulo.envio.domicilio/eliminar.php">ELIMINAR</a>
 </div>
 
 <!-- TU CODIGO EMPIEZA AQUI -->

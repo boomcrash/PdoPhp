@@ -1,3 +1,4 @@
+<?php ob_start() ?>
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -10,25 +11,20 @@
     <body>
 
         <?php
-            include_once '../templates/header.php';
+            include_once '../plantillas/encabezado.php';
         ?>
 
         <hr style="border:1px solid;">
         <h2>DISEÑAR PRODUCTO</h2>
         <div style="margin:20px 0 40px 0">
-            <a style="margin-right:20px; color:#0B5407;" href="../diseniaProducto/consultar.php">CONSULTAR</a>
-            <a style="margin-right:20px; color:#0B5407; font-weight:bold;" href="../diseniaProducto/insertar.php">INSERTAR</a>
-            <a style="color:#0B5407;"href="../diseniaProducto/eliminar.php">ELIMINAR</a>
+            <a style="margin-right:20px; color:#0B5407;" href="../modulo.disenia.producto/consultar.php">CONSULTAR</a>
+            <a style="margin-right:20px; color:#0B5407; font-weight:bold;" href="../modulo.disenia.producto/insertar.php">INSERTAR</a>
+            <a style="color:#0B5407;"href="../modulo.disenia.producto/eliminar.php">ELIMINAR</a>
         </div>
         
 
         <div style="margin-top:20px;"> 
             <form method="post">
-
-                <div style="margin-bottom:10px;">
-                    <label>ID</label>
-                    <input type="number" name="txtid">
-                </div>
 
                 <div style="margin-bottom:10px;">
                     <label>PRODUCTO:</label>
@@ -117,7 +113,7 @@
                 ];
 
                 $sql = "insert into disenio_producto (producto, cliente, disenio, modelo)".
-                        "values( :producto, :cliente, :disenio, :modelo)";
+                        "values(:producto, :cliente, :disenio, :modelo)";
                 $stmt = $pdo->prepare($sql);
                 $stmt->execute($data);
                 

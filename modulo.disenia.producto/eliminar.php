@@ -1,3 +1,4 @@
+<?php ob_start() ?>
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -10,15 +11,15 @@
     <body>
 
         <?php
-            include_once '../templates/header.php';
+            include_once '../plantillas/encabezado.php';
         ?>
 
         <hr style="border:1px solid;">
         <h2>DISEÑAR PRODUCTO</h2>
         <div style="margin:20px 0 40px 0">
-            <a style="margin-right:20px; color:#0B5407;" href="../diseniaProducto/consultar.php">CONSULTAR</a>
-            <a style="margin-right:20px; color:#0B5407;" href="../diseniaProducto/insertar.php">INSERTAR</a>
-            <a style="color:#0B5407; font-weight:bold;" href="../diseniaProducto/eliminar.php">ELIMINAR</a>
+            <a style="margin-right:20px; color:#0B5407;" href="../modulo.disenia.producto/consultar.php">CONSULTAR</a>
+            <a style="margin-right:20px; color:#0B5407;" href="../modulo.disenia.producto/insertar.php">INSERTAR</a>
+            <a style="color:#0B5407; font-weight:bold;" href="../modulo.disenia.producto/eliminar.php">ELIMINAR</a>
         </div>
         
         <?php

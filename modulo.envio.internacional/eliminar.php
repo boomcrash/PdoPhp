@@ -1,24 +1,25 @@
+<?php ob_start() ?>
 <!DOCTYPE html>
 <html lang="es">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="author" content="Quito Yambay Ruth Maria">
-        <title>ELIMINAR - QUITO</title>
+        <meta name="author" content="Yánez Guillén Paula Adriana">
+        <title>ELIMINAR - YÁNEZ</title>
     </head>
     <body>
 
         <?php
-        include_once '../templates/header.php';
+        include_once '../plantillas/encabezado.php';
         ?>
 
         <hr style="border:1px solid;">
-        <h2>CONTACTO</h2>
+        <h2>ENVIOS INTERNACIONALES</h2>
         <div style="margin:20px 0 40px 0">
-            <a style="margin-right:20px; color:#0B5407;" href="../contacto/consultar.php">CONSULTAR</a>
-            <a style="margin-right:20px; color:#0B5407;" href="../contacto/insertar.php">INSERTAR</a>
-            <a style="color:#0B5407; font-weight:bold;" href="../contacto/eliminar.php">ELIMINAR</a>
+            <a style="margin-right:20px; color:#0B5407;" href="../modulo.envio.internacional/consultar.php">CONSULTAR</a>
+            <a style="margin-right:20px; color:#0B5407;" href="../modulo.envio.internacional/insertar.php">INSERTAR</a>
+            <a style="color:#0B5407; font-weight:bold;" href="../modulo.envio.internacional/eliminar.php">ELIMINAR</a>
         </div>
         
         <!-- TU CODIGO EMPIEZA AQUI -->
@@ -29,24 +30,19 @@
             <div style="margin-top:20px;"> 
                 <form method="POST">   
                     <div>                     
-                    <label>Código ID del contacto que quiere eliminar</label>
+                    <label>Id:</label> 
                         <?php
                         if (!empty($_GET['id'])){
                                  
                             $data = ['id' => htmlentities($_GET['id'])];
-                            $sql = "select * from contacto where contacto_id = :id";            
+                            $sql = "select * from envio_internacional where internacional_id = :id";            
                             $stmt = $pdo->prepare($sql);
                             $stmt->execute($data);
                             $fila = $stmt->fetch(PDO::FETCH_ASSOC);
                             ?>
-
-                    <div>
-                    <form method="post">
-                        <label>ID:</label><input type="text" name="txtid" readonly="" value="<?php echo $fila['contacto_id'] ?>">
-                        <input type="submit" value="Eliminar">
-                    </form>
-
-                   </div>
+                    <div>                    
+                        <input type="text" name="txtid" readonly="" value="<?php echo $fila['internacional_id'] ?>">                    
+                    </div>
 
                         <?php
                         }else{?>
@@ -54,7 +50,6 @@
                         <?php
                         }
                         ?>
-
                     
                     <div> 
                         <input style="margin-top:20px;" type="submit" value="ELIMINAR">
@@ -66,14 +61,14 @@
         <?php
         if (isset($_POST['txtid'])) {
             $data = ['id' => htmlentities($_POST['txtid'])];
-            $sql = "delete from contacto where contacto_id = :id";
+            $sql = "delete from envio_internacional where internacional_id = :id";
             $stmt = $pdo->prepare($sql);
             $stmt->execute($data);
 
             if ($stmt->rowCount() > 0) {
                 header("location:consultar.php");
             } else {
-                echo 'No se pudo eliminar el contacto. Revise si el contacto existe.';
+                echo 'No se pudo eliminar el envío realizado. Ingrese un ID correcto.';
             }
         }
         ?>

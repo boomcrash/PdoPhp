@@ -7,16 +7,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Elizalde Gaibor Milton Alexander">
     <title>CONSULTAR - APELLIDO</title> 
-
+    <style>
+            table {
+                border: #b2b2b2 1px solid;
+                border-collapse: collapse;
+            }
+            td, th {
+                border: #b2b2b2 1px solid;
+                padding: 5px;
+            }
+        </style>
 </head>
 <body>
-<?php include_once '../templates/header.php'; ?>
+<?php include_once '../plantillas/encabezado.php'; ?>
 
 <h2>ENVIOS A DOMICILIO</h2>
 <div style="margin:20px 0 40px 0">
-    <a style="margin-right:20px; color:#0B5407; font-weight:bold;" href="../envioDomicilio/consultar.php">CONSULTAR</a>
-    <a style="margin-right:20px; color:#0B5407;" href="../envioDomicilio/insertar.php">INSERTAR</a>
-    <a style="margin-right:20px; color:#0B5407;" href="../envioDomicilio/eliminar.php">ELIMINAR</a>
+    <a style="margin-right:20px; color:#0B5407; font-weight:bold;" href="../modulo.envio.domicilio/consultar.php">CONSULTAR</a>
+    <a style="margin-right:20px; color:#0B5407;" href="../modulo.envio.domicilio/insertar.php">INSERTAR</a>
+    <a style="margin-right:20px; color:#0B5407;" href="../modulo.envio.domicilio/eliminar.php">ELIMINAR</a>
 </div>
         
 <?php
